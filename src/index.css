@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 @keyframes flicker {
     0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
       opacity: 1;
@@ -46,4 +47,47 @@
   .animate-fade {
     animation: fade 5s infinite;
   }
+
+  .glitch-hover:hover {
+    animation: glitch 0.4s infinite;
+  }
   
+
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-30px) scale(0.95);
+    }
+  }
+  
+  .popup-animate {
+    animation: slideIn 0.5s ease-out forwards;
+  }
+  
+  .popup-fade-out {
+    animation: fadeOut 0.5s ease-in forwards;
+  }
+  
+  .popup-box {
+    padding: 12px 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+  }

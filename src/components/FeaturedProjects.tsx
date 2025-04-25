@@ -29,9 +29,12 @@ const projectDescriptions = [
       "A back-end application developed in Node.js designed for managing cooperative members in a database. This project aims to provide an efficient and scalable solution to organize and maintain information about members of a financial institution. It offers real-time data management and filtering capabilities, providing a user-friendly interface for administrators and coordinators to track member contributions, profiles, and activities.",
     technologies: ["Node.js", "ReactJS", "EJS", "MySQL", "JavaScript", "HTML", "CSS"],
     githubLink: "https://github.com/Hitjunior001/cooperX",
+    
   },
 ];
-export default function FeaturedProjects() {
+
+
+export default function FeaturedProjects({buttonFixedBugs} : { buttonFixedBugs: boolean }) {
   return (
     
     <motion.section
@@ -41,7 +44,7 @@ export default function FeaturedProjects() {
       viewport={{ once: true }}
       className="space-y-12 relative z-10 rounded-2xl p-10 shadow-2xl "
     >
-      <h2 className="text-4xl font-bold text-center text-green-400 drop-shadow-lg glitch-text animate-flicker">
+      <h2 className={`text-4xl font-bold text-center text-green-400 drop-shadow-lg ${!buttonFixedBugs ? "animate-flicker" : ""}`}>
         Featured Projects
       </h2>
 
@@ -56,9 +59,8 @@ export default function FeaturedProjects() {
             viewport={{ once: true }}
           >
             <div className="p-4 group">
-              <h3 className="text-xl font-semibold text-white glitch-text">{project.title}</h3>
+              <h3 className={`text-xl font-semibold text-white ${!buttonFixedBugs ? "glitch-text" : ""}`}>{project.title}</h3>
               
-              {/* Descrição com efeito glitch só no hover */}
               <p className="text-sm text-gray-400 mt-2 group-hover:text-white">
                 {project.description}
               </p>

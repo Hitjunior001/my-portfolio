@@ -17,7 +17,7 @@ const techs = [
   { icon: <SiApache />, label: 'Apache' },
 ];
 
-export default function TechnologiesSection() {
+export default function TechnologiesSection({buttonFixedBugs} : { buttonFixedBugs: boolean }) {
   return (
     <motion.section
       initial={{ opacity: 0, x: -50 }}
@@ -26,7 +26,7 @@ export default function TechnologiesSection() {
       viewport={{ once: true }}
       className="space-y-12 relative z-10 py-16 px-6 rounded-2xl shadow-2xl"
     >
-      <h2 className="text-3xl font-bold text-center text-green-500 animate-flicker glitch-text">
+      <h2 className={`text-3xl font-bold text-center text-green-500 ${!buttonFixedBugs ? "animate-flicker" : ""}`}>
         Technologies
       </h2>
 
@@ -36,12 +36,12 @@ export default function TechnologiesSection() {
             key={index}
             whileHover={{ scale: 1.1, rotate: 1 }}
             transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-            className="group flex flex-col items-center justify-center bg-gray-800 rounded-xl p-5 text-center shadow-md hover:shadow-green-400 transition-all duration-300 cursor-pointer"
+            className={`group flex flex-col items-center justify-center bg-gray-800 rounded-xl p-5 text-center shadow-md hover:shadow-green-400 transition-all duration-300 cursor-pointer ${!buttonFixedBugs ? "animate-flicker" : ""}`}
           >
             <div className="text-4xl text-green-300 mb-2 group-hover:text-white transition">
               {tech.icon}
             </div>
-            <span className="text-sm font-semibold text-gray-200 group-hover:text-green-300 transition glitch-text delay-5000">
+            <span className={`text-sm font-semibold text-gray-200 group-hover:text-green-300 transition ${!buttonFixedBugs ? "glitch-text" : ""} delay-5000`}>
               {tech.label}
             </span>
           </motion.div>
