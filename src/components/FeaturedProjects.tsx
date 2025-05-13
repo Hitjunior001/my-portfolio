@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
 import { FaGithub } from 'react-icons/fa';
+import kanban from '../assets/kanban.PNG';
+import furinations from '../assets/furinations.PNG';
+
 
 const projectDescriptions = [
   {
@@ -24,13 +27,46 @@ const projectDescriptions = [
     githubLink: "https://github.com/Hitjunior001/Sistema_Cooperados/",
   },
   {
-    title: "Cooperative Member Management",
+    title: "Application to find Developers",
     description:
       "A back-end application developed in Node.js designed for managing cooperative members in a database. This project aims to provide an efficient and scalable solution to organize and maintain information about members of a financial institution. It offers real-time data management and filtering capabilities, providing a user-friendly interface for administrators and coordinators to track member contributions, profiles, and activities.",
     technologies: ["Node.js", "ReactJS", "EJS", "MySQL", "JavaScript", "HTML", "CSS"],
     githubLink: "https://github.com/Hitjunior001/cooperX",
     
   },
+  {
+    "title": "Kanban Project Management",
+    "description": "A personalized Kanban-style project management web application built with Vite.js and ReactJS, integrated with Firebase for authentication and real-time database management. This platform was specifically designed to meet the unique collaboration needs of my development team, offering custom features not found in existing tools. It enables project tracking, task assignment, and team coordination with a responsive, user-friendly interface.",
+    "technologies": [
+      "ReactJS",
+      "Vite.js",
+      "Firebase Authentication",
+      "Firebase Realtime Database",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Tailwind CSS"
+    ],
+    "githubLink": "https://github.com/Hitjunior001/my-kanban/tree/master",
+    "image": furinations,
+    "demoLink": "https://hitjunior001.github.io/my-kanban/#/"
+  },
+  {
+    "title": "FuriNation - Fan With Real Time Chat",
+    "description": "FuriNation is an intelligent web platform designed to understand and engage fans of the FURIA esports team. It uses social media data, real-time interactions, and user preferences to deliver personalized experiences and strategic insights. With gamification, fan profiling, and dynamic content delivery, FuriNation creates a deeper connection between the team and its passionate supporters.",
+    "technologies": [
+      "ReactJS",
+      "Vite.js",
+      "NodeJs",
+      "Firebase Authentication",
+      "Firebase Realtime Database",
+      "JavaScript",
+      "Tailwind CSS"
+    ],
+    "githubLink": "https://github.com/Hitjunior001/FuriNation",
+    "image": kanban,
+    "demoLink": "https://hitjunior001.github.io/FuriNation/#/"
+  }
 ];
 
 
@@ -50,48 +86,72 @@ export default function FeaturedProjects({buttonFixedBugs} : { buttonFixedBugs: 
 
       <div className="grid md:grid-cols-3 gap-8">
         {projectDescriptions.map((project, i) => (
-          <motion.div
-            key={i}
-            className="bg-gray-900 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: i * 0.2 }}
-            viewport={{ once: true }}
-          >
-            <div className="p-4 group">
-              <h3 className={`text-xl font-semibold text-white ${!buttonFixedBugs ? "glitch-text" : ""}`}>{project.title}</h3>
-              
-              <p className="text-sm text-gray-400 mt-2 group-hover:text-white">
-                {project.description}
-              </p>
+  <motion.div
+    key={i}
+    className="bg-gray-900 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: i * 0.2 }}
+    viewport={{ once: true }}
+  >
+    <div className="group">
+      {project.image && (
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-48 object-cover"
+        />
+      )}
 
-              <div className="mt-4">
-                <h4 className="text-md text-green-400">Technologies:</h4>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {project.technologies.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="text-xs text-gray-300 px-3 py-1 bg-gray-800 rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+      <div className="p-4">
+        <h3 className={`text-xl font-semibold text-white ${!buttonFixedBugs ? "glitch-text" : ""}`}>
+          {project.title}
+        </h3>
 
-                <div className="mt-4">
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center py-2 px-4 bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors"
-                  >
-                    <FaGithub className="mr-2" />
-                    View on GitHub
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+        <p className="text-sm text-gray-400 mt-2 group-hover:text-white">
+          {project.description}
+        </p>
+
+        <div className="mt-4">
+          <h4 className="text-md text-green-400">Technologies:</h4>
+          <div className="flex flex-wrap gap-2 mt-2">
+            {project.technologies.map((tech, index) => (
+              <span
+                key={index}
+                className="text-xs text-gray-300 px-3 py-1 bg-gray-800 rounded-full"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-2 mt-4">
+            <a
+              href={project.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center py-2 px-4 bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors"
+            >
+              <FaGithub className="mr-2" />
+              View on GitHub
+            </a>
+
+            {project.demoLink && (
+              <a
+                href={project.demoLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center py-2 px-4 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors"
+              >
+                View Demo
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </motion.div>
+
         ))}
       </div>
     </motion.section>
