@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaAngular, FaReact, FaJava, FaNodeJs } from 'react-icons/fa';
-import { SiSpringboot, SiFirebase, SiMongodb, SiMysql, SiJavascript, SiTypescript, SiPython, SiApache } from 'react-icons/si';
+import { SiSpringboot, SiFirebase, SiMongodb, SiMysql, SiJavascript, SiTypescript, SiPython, SiApache, SiPhp  } from 'react-icons/si';
+import { TbBrandCSharp } from "react-icons/tb";
 
 const techs = [
   { icon: <FaReact />, label: 'ReactJS' },
@@ -15,6 +16,10 @@ const techs = [
   { icon: <SiTypescript />, label: 'TypeScript' },
   { icon: <SiPython />, label: 'Python' },
   { icon: <SiApache />, label: 'Apache' },
+  { icon: <SiPhp />, label: 'PHP' },
+  { icon: <TbBrandCSharp />, label: 'C#' },
+
+
 ];
 
 export default function TechnologiesSection({buttonFixedBugs} : { buttonFixedBugs: boolean }) {

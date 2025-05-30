@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
 import { FaGithub } from 'react-icons/fa';
-import kanban from '../assets/kanban.PNG';
-import furinations from '../assets/furinations.PNG';
 
 
 const projectDescriptions = [
@@ -48,7 +46,6 @@ const projectDescriptions = [
       "Tailwind CSS"
     ],
     "githubLink": "https://github.com/Hitjunior001/my-kanban/tree/master",
-    "image": furinations,
     "demoLink": "https://hitjunior001.github.io/my-kanban/#/"
   },
   {
@@ -64,8 +61,21 @@ const projectDescriptions = [
       "Tailwind CSS"
     ],
     "githubLink": "https://github.com/Hitjunior001/FuriNation",
-    "image": kanban,
     "demoLink": "https://hitjunior001.github.io/FuriNation/#/"
+  },
+    {
+    "title": "Enterprise Resource Planning - PHP",
+    "description": "mini ERP system using a database completely modeled by me due to PHP limitations in being able to create relationships automatically. This system was created for a selection process for the use of customized content sales with various types of filters.",
+    "technologies": [
+      "PHP",
+      "Codeigniter 3",
+      "MySQL",
+      "Apache",
+      "CSS",
+      "HTML",
+      "Boostrap"
+    ],
+    "githubLink": "https://github.com/Hitjunior001/ERP_Montink",
   }
 ];
 
@@ -95,14 +105,6 @@ export default function FeaturedProjects({buttonFixedBugs} : { buttonFixedBugs: 
     viewport={{ once: true }}
   >
     <div className="group">
-      {project.image && (
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-48 object-cover"
-        />
-      )}
-
       <div className="p-4">
         <h3 className={`text-xl font-semibold text-white ${!buttonFixedBugs ? "glitch-text" : ""}`}>
           {project.title}
