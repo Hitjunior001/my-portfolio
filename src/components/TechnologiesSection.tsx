@@ -2,6 +2,9 @@ import { motion } from 'framer-motion';
 import { FaAngular, FaReact, FaJava, FaNodeJs } from 'react-icons/fa';
 import { SiSpringboot, SiFirebase, SiMongodb, SiMysql, SiJavascript, SiTypescript, SiPython, SiApache, SiPhp  } from 'react-icons/si';
 import { TbBrandCSharp } from "react-icons/tb";
+import { TbBrandReactNative } from "react-icons/tb";
+import { SiKotlin } from "react-icons/si";
+
 
 const techs = [
   { icon: <FaReact />, label: 'ReactJS' },
@@ -18,6 +21,10 @@ const techs = [
   { icon: <SiApache />, label: 'Apache' },
   { icon: <SiPhp />, label: 'PHP' },
   { icon: <TbBrandCSharp />, label: 'C#' },
+  { icon: <TbBrandReactNative  />, label: 'React Native' },
+  { icon: <SiKotlin />, label: 'Kotlin' },
+
+  
 
 
 ];
